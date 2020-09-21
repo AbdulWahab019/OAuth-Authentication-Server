@@ -16,9 +16,6 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     private String clientID;
     @Value("${user.oauth.clientSecret}")
     private String clientSecret;
-    @Value("${user.oauth.redirectUris}")
-    private String redirectURLs;
-
     public AuthServerConfig(PasswordEncoder passwordEncoder){
         this.passwordEncoder = passwordEncoder;
     }
@@ -36,7 +33,6 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .secret(passwordEncoder.encode(clientSecret))
                 .authorizedGrantTypes("client_credentials")
                 .scopes("user_info")
-                .autoApprove(true)
-                .redirectUris(redirectURLs);
+                .autoApprove(true);
     }
 }

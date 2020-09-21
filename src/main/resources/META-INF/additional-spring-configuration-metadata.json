@@ -11,11 +11,6 @@
       "description": "Description for user.oauth.clientSecret."
     },
     {
-      "name": "user.oauth.redirectUris",
-      "type": "java.lang.String",
-      "description": "Description for user.oauth.redirectUris."
-    },
-    {
       "name": "user.oauth.user.username",
       "type": "java.lang.String",
       "description": "Description for user.oauth.user.username."
