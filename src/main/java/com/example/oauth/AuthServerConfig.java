@@ -25,8 +25,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) {
-        oauthServer.tokenKeyAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()");
+        oauthServer.checkTokenAccess("permitAll()")
+                .tokenKeyAccess("isAuthenticated()");
     }
 
     @Override
@@ -34,7 +34,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
         clients.inMemory()
                 .withClient(clientID)
                 .secret(passwordEncoder.encode(clientSecret))
-                .authorizedGrantTypes("authorization_code")
+                .authorizedGrantTypes("client_credentials")
                 .scopes("user_info")
                 .autoApprove(true)
                 .redirectUris(redirectURLs);

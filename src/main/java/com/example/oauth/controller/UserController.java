@@ -6,8 +6,6 @@ import java.security.Principal;
 
 @RestController
 public class UserController {
-
-    @GetMapping("user/me")
     public Principal user(Principal principal){
         return principal;
     }
